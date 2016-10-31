@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://lili2311.github.io/blog/2016/10/30/stop-wasting-time-logging-into-github-on-command-line-every-time-you-push-just-set-up-ssh-keys/</loc>
+<lastmod>2016-10-30T23:54:37+00:00</lastmod>
+</url>
+<url>
 <loc>http://lili2311.github.io/blog/2016/03/05/frontend-automation-with-grunt/</loc>
 <lastmod>2016-03-05T00:00:00+00:00</lastmod>
 </url>
@@ -170,11 +174,5 @@
 </url>
 <url>
 <loc>http://lili2311.github.io/blog/categories/frontend/</loc>
-</url>
-<url>
-<loc>http://lili2311.github.io/posts/2/</loc>
-</url>
-<url>
-<loc>http://lili2311.github.io/posts/3/</loc>
 </url>
 </urlset>
