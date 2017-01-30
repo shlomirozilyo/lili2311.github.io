@@ -283,7 +283,7 @@ Each browser has default ways of interpreting each element, these can later be â
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://lili2311.github.io/blog/2015/12/03/create-a-simple-website-in-css-and-html-and-deploy-to-amazon-s3/" data-via="" data-counturl="http://lili2311.github.io/blog/2015/12/03/create-a-simple-website-in-css-and-html-and-deploy-to-amazon-s3/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://lili2311.github.io/blog/2015/12/03/create-a-simple-website-in-css-and-html-and-deploy-to-amazon-s3/" data-via="@lilianakastilio" data-counturl="http://lili2311.github.io/blog/2015/12/03/create-a-simple-website-in-css-and-html-and-deploy-to-amazon-s3/" >Tweet</a>
   
   
   
@@ -332,6 +332,35 @@ Each browser has default ways of interpreting each element, these can later be â
   </ul>
 </section>
 
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/lili2311">@lili2311</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'lili2311',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
 
 
 
@@ -344,7 +373,7 @@ Each browser has default ways of interpreting each element, these can later be â
     </div>
   </div>
   <footer role="contentinfo" class="footer"><p>
-  Copyright &copy; 2016 -
+  Copyright &copy; 2017 -
   Made with <span class="heart">&#9829;</span> by <a href="http://www.lilianakastilio.co.uk">Liliana Kastilio</a> <span class="credit"> 
 </p>
 
