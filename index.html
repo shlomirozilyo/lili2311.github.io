@@ -9,7 +9,7 @@
   <meta name="author" content="Liliana Kastilio">
 
   
-  <meta name="description" content="It Is Okay to Feel Like Giving Up! Feb 8th, 2017 11:16 am Getting stuck sucks 😭 One of the most demotivating things a new developer can face is &hellip;">
+  <meta name="description" content="How to Keep Divs the Same Height? Apr 17th, 2017 6:34 pm Equal height columns? Divs that stay the same height? After reading this post you will have &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,115 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="article__title"><a href="/blog/2017/04/17/how-to-keep-divs-the-same-height/" class="h1">How to Keep Divs the Same Height?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-04-17T18:34:26+01:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>6:34 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="article__content"><h2>Equal height columns? Divs that stay the same height?</h2>
+
+<p>After reading this post you will have beautiful, responsive divs/columns that always stay the same height as the content grows. How will we achieve this might you ask? Through the awesomeness of Flexbox! Flexbox has <a href="http://caniuse.com/#feat=flexbox">94% global support</a> (and you can provide fallbacks easily, but that is for another post) and it has made it easier to work with divs, columns, create image galleries and complex layouts that are also responsive.</p>
+
+<p>So let’s get to it, how do we use Flexbox to create responsive columns of equal height regardless of how much text/content is in each one?</p>
+
+<h2>HTML Structure</h2>
+
+<p>We will start with some HTML to define our columns. For the purpose of this example let&rsquo;s create 3 divs as our columns with an image and some text inside. To help us make these look even we will also need to wrap the whole thing in a container div, so let’s add that as well. You will see why we need a container div shortly.</p>
+
+<h6>Example structure, amend this as needed.</h6>
+
+<p data-height="500" data-theme-id="0" data-slug-hash="vmOoZy" data-default-tab="html" data-user="lili2311" data-embed-version="2" data-pen-title="Vertically Aligned Divs" class="codepen">See the Pen <a href="http://codepen.io/lili2311/pen/vmOoZy/">Vertically Aligned Divs</a> by Liliana Kastilio (<a href="http://codepen.io/lili2311">@lili2311</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+
+
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+
+<h2>Some CSS styling</h2>
+
+<p>So now we have our markup, let’s give it some basic styling: some background colour so we can see where our columns start and end and let&rsquo;s make it a 3 column layout by fixing the width as a quick hack for now.</p>
+
+<h6>Example CSS, amend this as needed.</h6>
+
+<p data-height="500" data-theme-id="0" data-slug-hash="vmOoZy" d ata-default-tab="css,result" data-user="lili2311" data-embed-version="2" data-pen-title="Vertically Aligned Divs" class="codepen">See the Pen <a href="http://codepen.io/lili2311/pen/vmOoZy/">Vertically Aligned Divs</a> by Liliana Kastilio (<a href="http://codepen.io/lili2311">@lili2311</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+
+
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+
+<h2>Ugly uneven columns</h2>
+
+<p>So at this stage we have exactly what you don&rsquo;t want, 3 ugly uneven columns. So when you only have a tiny bit of content in one it stays shorter than the others. 🚫 I am sure you have already tried fixing the height of the element and I probably don&rsquo;t have to say that that was a terrible idea and it looks bad anyway.</p>
+
+<h2>Flexbox to the rescue</h2>
+
+<p>What we really want is to allow the columns to breathe and grow as they need to given the amount of content in them but all stay the same height which is the height of the longest columns. This is where we can use the magic 💫 of Flexbox.</p>
+
+<p>What do you need to know to use Flexbox?</p>
+
+<h3>Flexbox container</h3>
+
+<p>When working with flexbox there is always a parent container that wraps around the elements that you want to align with Flexbox.</p>
+
+<h4>Display Flex</h4>
+
+<p>This parent element must have it&rsquo;s <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display">display property</a> set to <code>display: flex</code>. By just setting that property we have almost fixed our problem completely!</p>
+
+<h4>Flex Direction</h4>
+
+<p>You can also set the direction in which you want the items to align, which can be row or column. In this scenario all the columns we have need to sit in one row. So we want all the immediate children of the Flex container to be in one row and therefore we need to set <code>flex-direction: row</code> but if we also want it to stay fully responsive and the columns to fold over to the next row when there is not enough space we can tell the container to allow wrapping with <code>flex-wrap: wrap</code>:</p>
+
+<h6>Example CSS with Flexbox</h6>
+
+<p data-height="500" data-theme-id="0" data-slug-hash="VbLoqp" data-default-tab="css,result" data-user="lili2311" data-embed-version="2" data-pen-title="Vertically Aligned Divs" class="codepen">See the Pen <a href="http://codepen.io/lili2311/pen/VbLoqp/">Vertically Aligned Divs</a> by Liliana Kastilio (<a href="http://codepen.io/lili2311">@lili2311</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+
+
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+
+<h3>Flexbox children</h3>
+
+<p>For each child of a flex container (these will automatically be the direct children) we also can specify how much each child can grow and shrink given the amount of available space. So in our case we can set <code>flex: 1; </code> on the <code>.col</code> and to fully see it&rsquo;s effect let&rsquo;s remove everything else we added for this example to be a 3 col layout.</p>
+
+<h6>Example CSS with extra properties for responsiveness.</h6>
+
+<p data-height="429" data-theme-id="0" data-slug-hash="PmPweO" data-default-tab="css" data-user="lili2311" data-embed-version="2" data-pen-title="Vertically Aligned Divs" class="codepen">See the Pen <a href="http://codepen.io/lili2311/pen/PmPweO/">Vertically Aligned Divs</a> by Liliana Kastilio (<a href="http://codepen.io/lili2311">@lili2311</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+
+
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+
+<h6>And here is the final result, 3 same height and same width columns that are responsive and without using any grids!</h6>
+
+<p data-height="600" data-theme-id="0" data-slug-hash="PmPweO" data-default-tab="result" data-user="lili2311" data-embed-version="2" data-pen-title="Vertically Aligned Divs" class="codepen">See the Pen <a href="http://codepen.io/lili2311/pen/PmPweO/">Vertically Aligned Divs</a> by Liliana Kastilio (<a href="http://codepen.io/lili2311">@lili2311</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+
+
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+
+<h6>🔥 If you enjoyed this post then you can keep up to date with my latests blogs posts &amp; courses by following me on <a href="https://twitter.com/lilianakastilio">Twitter</a> and checking out my code school for some <a href="http://cubcats.teachable.com/courses/">hands on guided coding practice.</a></h6>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1705,72 +1814,6 @@ If the browser decides that the document is old-school, it’ll render it in qui
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="article__title"><a href="/blog/2014/12/10/Cancun-to-Belize-City-by-Bus/" class="h1">Cancun to Belize City by Bus</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-12-10T00:00:00+00:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="article__content"><p>After 3 weeks in Cuba, Cancun was a refreshing change. The weather changed for the worse in Havana and our entire stay was overcast and grey so feeling warmth and sun on your skin again was excellent! We were a few hours in into our 24 hr trip from Havana (Cuba) to Columbia San Pedro (Belize) where we will be spending 3 educational weeks on an organic permaculture farm in the Belizian rainforest. After long wait at security in Cancun Airport we set off to find the ADO bus counter to book our tickets for that night to get to Belize City.
-Of course, as luck would have it, the bus was full for that night. This has shifted all of our plans by one day and left us homeless for the night. We booked our tickets for the next day in person at the ADO bus counter at the Cancun airport and spent the next few hours searching for somewhere to stay.</p>
-
-<p>I wanted to share the information I have learned about getting from Cancun to Belize City.</p>
-
-<h4>1. Buy or book ADO bus tickets</h4>
-
-<p>The buses form Cancun to Belize are operated by <a href="http://ado.com.mx">ADO</a> (pronounced &ldquo;aa-de-oo&rdquo;). They conveniently have an ADO ticket counter as you are exiting the airport. Here you can pre-book your trip to Belize in person as no online booking is available for the bus to Belize (you can also pre-book the ticket in the ADO bus station in Downtown Cancun).</p>
-
-<p>There is only 1 bus a day at 10pm (it arrives in Belize City at 8.30am) from the ADO bus station in downtown Cancun. If you are traveling form the Cancun airport you would have to take another bus (it costs 64 Peso and takes 1hr) or taxi to the downtown ADO bus station. I have snapped a recent picture of the bus times from the airport to downtown Cancun:</p>
-
-<p><img src="http://www.lilianakastilio.co.uk/images/Cancun-Airport-Downtown-Cancun-Timetable.jpg" title="ADO Timetable, Cancun Aiport" alt="Image of bus times from Cancun airport to downtown" /></p>
-
-<p>Luckily we found somewhere to stay within a 5 minute walk of the ADO downtown bus station and after a much needed rest we carried on our journey the next evening.</p>
-
-<h4>2. Take the bus from Downtown ADO bus terminal</h4>
-
-<p>You have to arrive at least 15 minutes before the bus departure time, so to be safe we were waiting at the ADO bus station from 9:30 pm onwards. Bonus tip there is free wifi at the station!</p>
-
-<p>Listen for the announcements and the bus arrived to gate 1 on time, we took our bags with us and loaded them into the special compartment just before getting on.</p>
-
-<p><img src="http://www.lilianakastilio.co.uk/images/2014-12-10-Cancun-to-Belize-City-by-Bus/Cancun-ADO-Bus.jpg" title="Cancun ADO Bus" alt="Image of ADO bus" /></p>
-
-<p>The bus itself is air conditioned and it is absolutely freezing, so bring a blanked (not a joke! it was way too cold to fall asleep and it is apparently a well known fact). If you don&rsquo;t fancy using the bus toilet you can get off at any of the stops and use the bathroom, usually the driver stops for about 5 minutes or so to pick up more people in Playa Del Carmen, Tulum, Bacalar and then Belize City.</p>
-
-<h4>3. Crossing the border</h4>
-
-<p>We arrived at the Mexican border at about 4am where we all had to get off the bus and queue outside to go through border control, they checked passports and collected the immigration slip that you would have filled out on entering the country. This is also where we had to pay Mexican Border Exit Tax which was about 300 MXN.</p>
-
-<p>After about an hour at the border we were ushered back onto the bus and a short ride later we arrived at the Belizian border. Here we had to get off the bus with all our luggage and cross the border into Belize and scan all our luggage. Another hour later we were free to go back to sleep but not for long as we would be arriving into Belize City at 8.30am with a few stops on the way (Corozal and Orange Walk).</p>
-
-<h4>4. Arriving in Belize City</h4>
-
-<p>The bus terminal is still commonly known as Novelo&rsquo;s (this is the name of a former bus company). The ADO buses arrive and depart from here along with a few other buses.</p>
-
-<p><img src="http://www.lilianakastilio.co.uk/images/2014-12-10-Cancun-to-Belize-City-by-Bus/Novelo-Bus-Terminal.jpg" title="Novelo Bus Terminal, Belize City" alt="Image of Novelo Bus Terminal" /></p>
-
-<p>From Belize City out journey to reach an organic farm cituated in the Belizian rainforest carries on still onto a small town of Punta Gorda in Southern Belize, but that is a whole other blog post.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -1786,6 +1829,10 @@ Of course, as luck would have it, the bus was full for that night. This has shif
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2017/04/17/how-to-keep-divs-the-same-height/">How to Keep Divs the Same Height?</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2017/02/08/how-to-stay-motivated-when-stuck/">It Is Okay to Feel Like Giving Up!</a>
       </li>
     
@@ -1799,10 +1846,6 @@ Of course, as luck would have it, the bus was full for that night. This has shif
     
       <li class="post">
         <a href="/blog/2016/03/05/frontend-automation-with-grunt/">Frontend Automation With Grunt</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/03/05/create-new-iam-users-and-permissions-in-aws/">Part 4: Create New IAM Users and Permissions in AWS</a>
       </li>
     
   </ul>
